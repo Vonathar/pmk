@@ -7,7 +7,7 @@ import '../../css/home/home.css'
 
 class Home extends Component {
     state = {
-        dropdownSelection: "link"
+        dropdownSelection: "text"
     }
     updateDropdownSelection = (newSelection) => {
         this.setState({
