@@ -1,3 +1,4 @@
+// Imports
 import React, { Component } from 'react';
 import DropdownType from './dropdownType';
 import TextEditor from './textEditor';

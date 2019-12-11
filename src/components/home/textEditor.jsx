@@ -1,3 +1,4 @@
+// Imports
 import React, { Component } from 'react';
 import '../../css/home/textEditor.css'
 import { Form, Button } from 'react-bootstrap';
@@ -9,6 +10,8 @@ class TextEditor extends Component {
         hasRichText: false,
         preferMaxLengthOverDefault: false
     }
+
+    // Render the max-length or the length-default based on the boolean preferMaxLengthOverDefault
     renderTextLengthFields = () => {
         if (this.state.preferMaxLengthOverDefault) {
             return (
@@ -25,6 +28,8 @@ class TextEditor extends Component {
                 </Form.Group>)
         }
     }
+
+    // Render the editable properties of the PM tags based on the boolean isEditable
     renderEditableFields = () => {
         if (this.state.isEditable) {
             return (
@@ -53,6 +58,7 @@ class TextEditor extends Component {
             )
         }
     }
+
     render() {
         return (
             <div id="div-textEditor" >
