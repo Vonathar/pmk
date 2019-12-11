@@ -3,6 +3,7 @@ import DropdownType from './dropdownType';
 import TextEditor from './textEditor';
 import LinkEditor from './linkEditor';
 import ImageEditor from './imageEditor';
+import TagDisplay from './tagDisplay';
 import '../../css/home/home.css'
 
 class Home extends Component {
@@ -27,10 +28,11 @@ class Home extends Component {
     }
     render() {
         return (
-            <div id="div-home" className="bg-secondary">
+            <div id="div-home">
                 <p id="topTitle">PMK 0.1</p>
                 <DropdownType updateDropdownSelection={this.updateDropdownSelection}></DropdownType>
                 {this.renderEditor()}
+                <TagDisplay></TagDisplay>
             </div>
         );
     }
