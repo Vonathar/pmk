@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
+import { Dropdown, DropdownButton } from 'react-bootstrap';
+
 
 class DropdownType extends Component {
     render() {
         return (
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <button class="dropdown-item" type="button">Action</button>
-                    <button class="dropdown-item" type="button">Another action</button>
-                    <button class="dropdown-item" type="button">Something else here</button>
-                </div>
+            <div className="dropdown">
+                <DropdownButton variant="success" id="dropdown-item-button" title="PM Element">
+                    <Dropdown.Item as="button" onClick={() => { this.props.updateDropdownSelection("text") }}>Text</Dropdown.Item>
+                    <Dropdown.Item as="button" onClick={() => { this.props.updateDropdownSelection("link") }}>Link</Dropdown.Item>
+                    <Dropdown.Item as="button" onClick={() => { this.props.updateDropdownSelection("image") }}>Image</Dropdown.Item>
+                </DropdownButton>
             </div>
         );
     }
