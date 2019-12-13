@@ -31,7 +31,7 @@ class SubmitButton extends Component {
         return snippet;
     }
 
-    // Return a pm-text="tag" with the user-added attribute
+    // Return a pm-text="" with the user-added attribute
     buildManualPmText = () => {
         let snippet = " pm-text=\"";
         snippet += this.props.mainState.tagContent.pmText;
@@ -69,6 +69,14 @@ class SubmitButton extends Component {
         // Add the editable attribute (if applicable)
         if (this.props.mainState.isEditable) {
             snippet += " editable=\"true\"";
+        }
+        // Add the optional attribute (if applicable)
+        if (this.props.mainState.isOptional) {
+            snippet += " optional=\"true\"";
+        }
+        // Add the rich text attribute (if applicable)
+        if (this.props.mainState.hasRichText) {
+            snippet += " rich-text=\"true\"";
         }
         snippet += this.buildLengthAttribute();
         snippet += ">"
