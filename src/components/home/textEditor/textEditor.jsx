@@ -16,7 +16,7 @@ import SubmitButton from './submitButton';
 
 class TextEditor extends Component {
     state = {
-        isEditable: true,
+        isEditable: false,
         isOptional: false,
         hasRichText: false,
         preferMaxLengthOverDefault: false,
