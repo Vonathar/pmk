@@ -4,7 +4,7 @@ import { Form } from 'react-bootstrap';
 class PmTextInput extends Component {
     render() {
         return (
-            <Form.Group controlId="pmText" className="editor-input-medium">
+            <Form.Group onChange={(event) => { this.props.setPmText(event.target.value) }} controlId="pmText" className="editor-input-medium">
                 <Form.Label>PM-Text</Form.Label>
                 <Form.Control type="text" placeholder="Enter the unique pm-text attribute" />
             </Form.Group>

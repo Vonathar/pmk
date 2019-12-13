@@ -8,8 +8,8 @@ class EnclosingTagSelect extends Component {
             <Form.Group onChange={(event) => { this.props.setEnclosingTag(event.target.value) }} controlId="exampleForm.ControlSelect2" className="editor-input-small">
                 <Form.Label>Enclosing tag</Form.Label>
                 <Form.Control as="select">
-                    <option>p</option>
                     <option>div</option>
+                    <option>p</option>
                     <option>span</option>
                 </Form.Control>
             </Form.Group>

@@ -23,6 +23,7 @@ class TextEditor extends Component {
         tagContent: {
             enclosingTag: "div",
             autoPopulateText: null,
+            pmText: null,
             customText: null,
         },
     }
@@ -54,7 +55,14 @@ class TextEditor extends Component {
         this.setState({ tagContent });
     }
 
-    // Change the auto populated pm-tag to the selection of the user
+    // Manually change the pm-text from the text input
+    setPmText = (newText) => {
+        let tagContent = { ...this.state.tagContent };
+        tagContent.pmText = newText;
+        this.setState({ tagContent });
+    }
+
+    // Change the auto populated pm-text to the selection of the user
     setAutoPopulateText = (newText) => {
         let tagContent = { ...this.state.tagContent };
         tagContent.autoPopulateText = newText;
@@ -83,7 +91,7 @@ class TextEditor extends Component {
         if (this.state.isEditable) {
             return (
                 <span>
-                    <PmTextInput />
+                    <PmTextInput setPmText={this.setPmText} />
                     <PreferMaxLengthCheckbox toggleMaxLength={this.toggleMaxLength} />
                     {this.renderTextLengthFields()}
                     <OptionalCheckbox toggleOptional={this.toggleOptional} />
