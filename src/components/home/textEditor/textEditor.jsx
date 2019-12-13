@@ -25,6 +25,8 @@ class TextEditor extends Component {
             autoPopulateText: null,
             pmText: null,
             customText: null,
+            maxLength: 0,
+            lengthDefault: 0,
         },
     }
 
@@ -65,7 +67,7 @@ class TextEditor extends Component {
     // Change the auto populated pm-text to the selection of the user
     setAutoPopulateText = (newText) => {
         let tagContent = { ...this.state.tagContent };
-        tagContent.autoPopulateText = newText;
+        tagContent.autoPopulateText = newText === "None" ? null : newText;
         this.setState({ tagContent });
     }
 
@@ -76,13 +78,29 @@ class TextEditor extends Component {
         this.setState({ tagContent });
     }
 
+    // Set the value of the attribute max-length
+    setMaxLengthValue = (newValue) => {
+        let tagContent = { ...this.state.tagContent };
+        tagContent.maxLength = newValue;
+        this.setState({ tagContent });
+        console.log(newValue)
+    }
+
+    // Set the value of the attribute length-default
+    setLengthDefaultValue = (newValue) => {
+        let tagContent = { ...this.state.tagContent };
+        tagContent.lengthDefault = newValue;
+        this.setState({ tagContent });
+        console.log(newValue)
+    }
+
     // Render the max-length or the length-default based on the boolean preferMaxLengthOverDefault
     renderTextLengthFields = () => {
         if (this.state.preferMaxLengthOverDefault) {
-            return <MaxLengthInput />
+            return <MaxLengthInput setMaxLengthValue={this.setMaxLengthValue} />
         }
         else {
-            return <LengthDefaultInput />
+            return <LengthDefaultInput setLengthDefaultValue={this.setLengthDefaultValue} />
         }
     }
 

@@ -21,6 +21,9 @@ class SubmitButton extends Component {
         if (this.props.mainState.tagContent.autoPopulateText === "Company Address") {
             snippet += "companyaddress"
         }
+        if (this.props.mainState.tagContent.autoPopulateText === "Value Proposition") {
+            snippet += "valueproposition"
+        }
         if (this.props.mainState.tagContent.autoPopulateText === "Link to LP") {
             snippet += "landingpage"
         }
@@ -36,6 +39,21 @@ class SubmitButton extends Component {
         return snippet;
     }
 
+    buildLengthAttribute = () => {
+        if (this.props.mainState.preferMaxLengthOverDefault) {
+            return (
+                " max-length=\"" +
+                this.props.mainState.tagContent.maxLength +
+                "\""
+            )
+        }
+        return (
+            " length-default=\"+" +
+            this.props.mainState.tagContent.lengthDefault +
+            "\""
+        )
+    }
+
     // Build the opening tag and its relevant attributes
     buildOpeningTag = () => {
         let snippet = "<";
@@ -48,7 +66,12 @@ class SubmitButton extends Component {
         if (!this.props.mainState.tagContent.autoPopulateText && this.props.mainState.tagContent.pmText) {
             snippet += this.buildManualPmText();
         }
-        snippet += " >"
+        // Add the editable attribute (if applicable)
+        if (this.props.mainState.isEditable) {
+            snippet += " editable=\"true\"";
+        }
+        snippet += this.buildLengthAttribute();
+        snippet += ">"
         return snippet;
     }
 
