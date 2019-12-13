@@ -3,6 +3,12 @@ import React, { Component } from 'react';
 import '../../css/home/tagDisplay.css'
 
 class TagDisplay extends Component {
+
+    buildTag = () => {
+        let tag = "";
+        tag += "\<" + "p" + "\>"
+    }
+
     render() {
         return (
             <div id="div-tagDisplay">
@@ -10,7 +16,7 @@ class TagDisplay extends Component {
                     Result
                 </p>
                 <p className="tagDisplay-result">
-                    Result Result Result Result Result Result Result Result Result
+                    {this.props.mainState.finalTag}
                 </p>
             </div>
         )

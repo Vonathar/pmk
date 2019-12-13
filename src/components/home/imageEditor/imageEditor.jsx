@@ -1,6 +1,6 @@
 // Imports
 import React, { Component } from 'react';
-import '../../css/home/imageEditor.css'
+import '../../../css/home/imageEditor.css'
 
 class ImageEditor extends Component {
     render() {
