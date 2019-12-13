@@ -69,16 +69,16 @@ class SubmitButton extends Component {
         // Add the editable attribute (if applicable)
         if (this.props.mainState.isEditable) {
             snippet += " editable=\"true\"";
+            // Add the rich text attribute (if applicable)
+            if (this.props.mainState.hasRichText) {
+                snippet += " rich-text=\"true\"";
+            }
+            snippet += this.buildLengthAttribute();
         }
         // Add the optional attribute (if applicable)
         if (this.props.mainState.isOptional) {
             snippet += " optional=\"true\"";
         }
-        // Add the rich text attribute (if applicable)
-        if (this.props.mainState.hasRichText) {
-            snippet += " rich-text=\"true\"";
-        }
-        snippet += this.buildLengthAttribute();
         snippet += ">"
         return snippet;
     }
