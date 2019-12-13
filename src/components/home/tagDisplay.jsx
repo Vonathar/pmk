@@ -4,11 +4,6 @@ import '../../css/home/tagDisplay.css'
 
 class TagDisplay extends Component {
 
-    buildTag = () => {
-        let tag = "";
-        tag += "\<" + "p" + "\>"
-    }
-
     render() {
         return (
             <div id="div-tagDisplay">

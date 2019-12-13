@@ -29,7 +29,7 @@ class Home extends Component {
     // Render the relevant editor based on the value of the dropdown menu at the top
     renderEditor = () => {
         if (this.state.dropdownSelection === "text") {
-            return <TextEditor />
+            return <TextEditor updateFinalTag={this.updateFinalTag} />
         }
         if (this.state.dropdownSelection === "link") {
             return <LinkEditor />

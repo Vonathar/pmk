@@ -21,7 +21,9 @@ class TextEditor extends Component {
         hasRichText: false,
         preferMaxLengthOverDefault: false,
         tagContent: {
-            autoPopulateText: "",
+            enclosingTag: "div",
+            autoPopulateText: null,
+            customText: null,
         },
     }
 
@@ -45,10 +47,24 @@ class TextEditor extends Component {
         this.setState({ hasRichText: !this.state.hasRichText })
     }
 
+    // Change the element which encloses the text [p/div/span]
+    setEnclosingTag = (newTag) => {
+        let tagContent = { ...this.state.tagContent };
+        tagContent.enclosingTag = newTag;
+        this.setState({ tagContent });
+    }
+
     // Change the auto populated pm-tag to the selection of the user
     setAutoPopulateText = (newText) => {
         let tagContent = { ...this.state.tagContent };
         tagContent.autoPopulateText = newText;
+        this.setState({ tagContent });
+    }
+
+    // Set the text content of the tag to the user input
+    setCustomText = (newText) => {
+        let tagContent = { ...this.state.tagContent };
+        tagContent.customText = newText;
         this.setState({ tagContent });
     }
 
@@ -77,6 +93,8 @@ class TextEditor extends Component {
         }
     }
 
+
+
     render() {
         return (
             <div id="div-textEditor" >
@@ -85,11 +103,11 @@ class TextEditor extends Component {
                 </p>
                 <Form>
                     <AutoPopulateSelect setAutoPopulateText={this.setAutoPopulateText} />
-                    <EnclosingTagSelect />
-                    <TextContentInput />
+                    <EnclosingTagSelect setEnclosingTag={this.setEnclosingTag} />
+                    <TextContentInput setCustomText={this.setCustomText} />
                     <EditableCheckbox toggleEditable={this.toggleEditable} />
                     {this.renderEditableFields()}
-                    <SubmitButton />
+                    <SubmitButton mainState={this.state} updateFinalTag={this.props.updateFinalTag} />
                 </Form>
             </div>
         )
