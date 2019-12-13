@@ -17,7 +17,7 @@
 .editor-h1 {
     font-size: 15px;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .form-label {
@@ -27,15 +27,15 @@
 
 .editor-input-wide {
     width: 500px;
-    margin: 0 auto 35px auto;
+    margin: 0 auto 20px auto;
 }
 
 .editor-input-medium {
     width: 300px;
-    margin: 0 auto 35px auto;
+    margin: 0 auto 20px auto;
 }
 
 .editor-input-small {
     width: 120px;
-    margin: 0 auto 35px auto;
+    margin: 0 auto 20px auto;
 }

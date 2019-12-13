@@ -79,6 +79,14 @@ class TextEditor extends Component {
                             <option>Link to LP</option>
                         </Form.Control>
                     </Form.Group>
+                    <Form.Group controlId="exampleForm.ControlSelect2" className="editor-input-small">
+                        <Form.Label>Enclosing tag</Form.Label>
+                        <Form.Control as="select">
+                            <option>&lt;p&gt;</option>
+                            <option>&lt;div&gt;</option>
+                            <option>&lt;span&gt;</option>
+                        </Form.Control>
+                    </Form.Group>
                     <Form.Group controlId="textContent" className="editor-input-wide">
                         <Form.Label>Text content</Form.Label>
                         <Form.Control type="text" placeholder="Enter the text which should be within the tag" />
