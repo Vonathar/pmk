@@ -9,6 +9,7 @@ class ImageEditor extends Component {
                 <p className="editor-h1">
                     Image editor
                 </p>
+                <p>Coming soon</p>
             </div>
         )
     }

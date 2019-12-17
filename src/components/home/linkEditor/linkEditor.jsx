@@ -10,6 +10,7 @@ class LinkEditor extends Component {
                 <p className="editor-h1">
                     Link editor
                 </p>
+                <p>Coming soon</p>
             </div>
         )
     }

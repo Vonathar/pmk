@@ -7,15 +7,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 export default class TopMenu extends Component {
 
-    state = {
-        // Object holding the required classNames
-        classes: {
-            list: {
-                width: 250,
-            },
-        }
-    }
-
     render() {
         return (
             <div className="dropdown" >

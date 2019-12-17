@@ -1,3 +1,4 @@
+import '../../css/home/leftDrawer.css'
 import React, { Component } from 'react';
 import TextFields from '@material-ui/icons/TextFields'
 import LinkIcon from '@material-ui/icons/Link'
@@ -9,7 +10,7 @@ export default class LeftDrawer extends Component {
     render() {
         return (
             <div
-                className={this.props.topMenuState.classes.list}
+                className="leftDrawer-div"
                 role="presentation"
                 onClick={this.props.toggleDrawer(false)}
             >
