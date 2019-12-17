@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
+import Button from '@material-ui/core/Button';
 
 class SubmitButton extends Component {
 
@@ -101,7 +101,7 @@ class SubmitButton extends Component {
             <Button onClick={(e) => {
                 e.preventDefault();
                 this.buildFinalTag();
-            }} variant="success" type="submit">
+            }} variant="contained" color="primary" type="submit">
                 Generate
             </Button>
         )

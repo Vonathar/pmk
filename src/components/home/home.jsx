@@ -1,6 +1,6 @@
 // Imports
 import React, { Component } from 'react';
-import DropdownType from './dropdownType';
+import DropdownType from './topMenu';
 import TextEditor from './textEditor/textEditor';
 import LinkEditor from './linkEditor/linkEditor';
 import ImageEditor from './imageEditor/imageEditor';
@@ -9,9 +9,19 @@ import '../../css/home/home.css'
 
 class Home extends Component {
     state = {
+        isDrawerOpen: false,
         dropdownSelection: "text",
         finalTag: "..."
     }
+
+    // Open or close the drawer
+    toggleDrawer = (open) => event => {
+        if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+        this.setState({ isDrawerOpen: open })
+    }
+
     // Switch the currently open editor [Image/Text/Link]
     updateDropdownSelection = (newSelection) => {
         this.setState({
@@ -42,8 +52,7 @@ class Home extends Component {
     render() {
         return (
             <div id="div-home">
-                <p id="topTitle">PMK 0.1</p>
-                <DropdownType updateDropdownSelection={this.updateDropdownSelection}></DropdownType>
+                <DropdownType updateDropdownSelection={this.updateDropdownSelection} mainState={this.state} toggleDrawer={this.toggleDrawer}></DropdownType>
                 {this.renderEditor()}
                 <TagDisplay mainState={this.state} />
             </div>
