@@ -1,5 +1,5 @@
 // Imports
-import '../../../css/home/textEditor.css'
+import '../../../css/tagEditor/textEditor.css'
 import React, { Component } from 'react';
 import { Form } from 'react-bootstrap';
 import AutoPopulateSelect from './autoPopulateSelect';

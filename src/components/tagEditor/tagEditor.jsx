@@ -5,7 +5,7 @@ import TextEditor from './textEditor/textEditor';
 import LinkEditor from './linkEditor/linkEditor';
 import ImageEditor from './imageEditor/imageEditor';
 import TagDisplay from './tagDisplay';
-import '../../css/home/home.css'
+import '../../css/tagEditor/tagEditor.css'
 
 class Home extends Component {
     state = {
@@ -51,7 +51,7 @@ class Home extends Component {
 
     render() {
         return (
-            <div id="div-home">
+            <div id="div-tagEditor">
                 <DropdownType updateDropdownSelection={this.updateDropdownSelection} mainState={this.state} toggleDrawer={this.toggleDrawer}></DropdownType>
                 {this.renderEditor()}
                 <TagDisplay mainState={this.state} />

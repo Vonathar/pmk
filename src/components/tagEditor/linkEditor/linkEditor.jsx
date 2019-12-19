@@ -1,6 +1,6 @@
 // Imports
 import React, { Component } from 'react';
-import '../../../css/home/linkEditor.css'
+import '../../../css/tagEditor/linkEditor.css'
 
 
 class LinkEditor extends Component {

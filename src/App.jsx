@@ -1,10 +1,10 @@
 import React from 'react';
-import Home from './components/home/home'
+import TagEditor from './components/tagEditor/tagEditor'
 
 function App() {
   return (
     <div className="App">
-      <Home></Home>
+      <TagEditor></TagEditor>
     </div>
   );
 }
