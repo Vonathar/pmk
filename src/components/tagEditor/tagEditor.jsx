@@ -10,7 +10,7 @@ import '../../css/tagEditor/tagEditor.css'
 class Home extends Component {
     state = {
         isDrawerOpen: false,
-        dropdownSelection: "text",
+        dropdownSelection: "link",
         finalTag: "..."
     }
 
@@ -42,7 +42,7 @@ class Home extends Component {
             return <TextEditor updateFinalTag={this.updateFinalTag} />
         }
         if (this.state.dropdownSelection === "link") {
-            return <LinkEditor />
+            return <LinkEditor updateFinalTag={this.updateFinalTag} />
         }
         if (this.state.dropdownSelection === "image") {
             return <ImageEditor />
