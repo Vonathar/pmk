@@ -10,7 +10,7 @@ import '../../css/tagEditor/tagEditor.css'
 class Home extends Component {
     state = {
         isDrawerOpen: false,
-        dropdownSelection: "link",
+        dropdownSelection: "text",
         finalTag: "..."
     }
 
