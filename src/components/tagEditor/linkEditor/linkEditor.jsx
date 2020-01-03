@@ -1,7 +1,6 @@
 // Imports
 import React, { Component } from 'react';
 import { Form } from 'react-bootstrap';
-import AutoPopulateSelect from './autoPopulateSelect';
 import SubmitButton from './submitButton';
 import Checkbox from '../../common/checkbox';
 import TextInput from '../../common/textInput';
@@ -67,7 +66,7 @@ class LinkEditor extends Component {
                     Link editor
                 </p>
                 <Form>
-                    <AutoPopulateSelect setAutoPopulateText={this.setAutoPopulateText} />
+                    <SelectInput changeTagContentState={this.changeTagContentState} parameterName="autoPopulateText" displayName="Auto-populate" size="medium" options={["None", "Landing page", "Privacy policy", "Company email"]} />
                     <TextInput changeTagContentState={this.changeTagContentState} parameterName="customText" displayName="Text content" size="wide" placeholder="Enter the text which should be within the tag" />
                     <Checkbox toggleStateBoolean={this.toggleStateBoolean} parameterName="isEditable" displayName="Editable" />
                     {this.renderEditableFields()}
