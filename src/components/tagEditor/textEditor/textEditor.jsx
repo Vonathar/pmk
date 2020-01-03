@@ -5,13 +5,10 @@ import { Form } from 'react-bootstrap';
 import AutoPopulateSelect from './autoPopulateSelect';
 import EnclosingTagSelect from './enclosingTagSelect';
 import TextContentInput from './textContentInput';
-import EditableCheckbox from './editableCheckbox';
 import MaxLengthInput from './maxLengthInput';
 import LengthDefaultInput from './lengthDefaultInput';
 import PmTextInput from './pmTextInput';
-import PreferMaxLengthCheckbox from './preferMaxLengthCheckbox';
-import OptionalCheckbox from './optionalCheckbox';
-import RichTextCheckbox from './richTextCheckbox';
+import Checkbox from '../../common/checkbox';
 import SubmitButton from './submitButton';
 
 class TextEditor extends Component {
@@ -55,10 +52,10 @@ class TextEditor extends Component {
             return (
                 <span>
                     <PmTextInput changeTagContentState={this.changeTagContentState} />
-                    <PreferMaxLengthCheckbox toggleStateBoolean={this.toggleStateBoolean} />
+                    <Checkbox toggleStateBoolean={this.toggleStateBoolean} parameterName="preferMaxLengthOverDefault" displayName="Use max-length" />
                     {this.renderTextLengthFields()}
-                    <OptionalCheckbox toggleStateBoolean={this.toggleStateBoolean} />
-                    <RichTextCheckbox toggleStateBoolean={this.toggleStateBoolean} />
+                    <Checkbox toggleStateBoolean={this.toggleStateBoolean} parameterName="isOptional" displayName="Optional" />
+                    <Checkbox toggleStateBoolean={this.toggleStateBoolean} parameterName="hasRichText" displayName="Rich text" />
                 </span>
             )
         }
@@ -74,7 +71,7 @@ class TextEditor extends Component {
                     <AutoPopulateSelect changeTagContentState={this.changeTagContentState} />
                     <EnclosingTagSelect changeTagContentState={this.changeTagContentState} />
                     <TextContentInput changeTagContentState={this.changeTagContentState} />
-                    <EditableCheckbox toggleStateBoolean={this.toggleStateBoolean} />
+                    <Checkbox toggleStateBoolean={this.toggleStateBoolean} parameterName="isEditable" displayName="Editable" />
                     {this.renderEditableFields()}
                     <SubmitButton mainState={this.state} updateFinalTag={this.props.updateFinalTag} />
                 </Form>
