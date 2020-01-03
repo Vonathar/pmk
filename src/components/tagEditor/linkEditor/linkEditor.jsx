@@ -3,13 +3,12 @@ import React, { Component } from 'react';
 import { Form } from 'react-bootstrap';
 import AutoPopulateSelect from './autoPopulateSelect';
 import TextContentInput from './textContentInput';
-import EditableCheckbox from './editableCheckbox';
 import PmLinkInput from './pmLinkInput';
-import OptionalCheckbox from './optionalCheckbox';
-import LinkEditableCheckbox from './linkEditableCheckbox';
-import TextEditableCheckbox from './textEditableCheckbox';
 import MaxLengthInput from './maxLengthInput';
 import SubmitButton from './submitButton';
+import Checkbox from '../../common/checkbox';
+import TextInput from '../../common/textInput';
+import SelectInput from '../../common/selectInput'
 import '../../../css/tagEditor/linkEditor.css';
 
 
@@ -28,53 +27,18 @@ class LinkEditor extends Component {
         },
     }
 
-    // Toggle whether the pm-tag is editable
-    toggleEditable = () => {
-        this.setState({ isEditable: !this.state.isEditable })
+    // Invert the boolean value of a given state property
+    // Accepts one single formal parameter, which is the parameter identifier
+    toggleStateBoolean = (booleanName) => {
+        this.setState({ [booleanName]: !this.state[booleanName] })
     }
 
-    // Toggle whether the pm-tag is optional
-    toggleOptional = () => {
-        this.setState({ isOptional: !this.state.isOptional })
-    }
-
-    // Toggle whether the LINK is editable
-    toggleLinkEditable = () => {
-        this.setState({ isLinkEditable: !this.state.isLinkEditable })
-    }
-
-    // Toggle where the TEXT is editable
-    toggleTextEditable = () => {
-        this.setState({ isTextEditable: !this.state.isTextEditable })
-    }
-
-    // Manually change the pm-link from the text input
-    setPmLink = (newText) => {
+    // Change the value of a given property that's present in the state
+    // Accepts two formal parameters: (1) the new value and (2) the unique property identifier
+    changeTagContentState = (newValue, parameterName) => {
         let tagContent = { ...this.state.tagContent };
-        tagContent.pmLink = newText;
+        tagContent[parameterName] = newValue;
         this.setState({ tagContent });
-    }
-
-    // Change the auto populated pm-link to the selection of the user
-    setAutoPopulateText = (newText) => {
-        let tagContent = { ...this.state.tagContent };
-        tagContent.autoPopulateText = newText === "None" ? null : newText;
-        this.setState({ tagContent });
-    }
-
-    // Set the text content of the tag to the user input
-    setCustomText = (newText) => {
-        let tagContent = { ...this.state.tagContent };
-        tagContent.customText = newText;
-        this.setState({ tagContent });
-    }
-
-    // Set the value of the attribute max-length
-    setMaxLengthValue = (newValue) => {
-        let tagContent = { ...this.state.tagContent };
-        tagContent.maxLength = newValue;
-        this.setState({ tagContent });
-        console.log(newValue)
     }
 
     // Render the editable properties of the PM tags based on the boolean isEditable
@@ -83,9 +47,9 @@ class LinkEditor extends Component {
             return (
                 <span>
                     <PmLinkInput setPmLink={this.setPmLink} />
-                    <OptionalCheckbox toggleOptional={this.toggleOptional} />
-                    <LinkEditableCheckbox toggleLinkEditable={this.toggleLinkEditable} />
-                    <TextEditableCheckbox toggleTextEditable={this.toggleTextEditable} />
+                    <Checkbox toggleStateBoolean={this.toggleStateBoolean} parameterName="isOptional" displayName="Optional" />
+                    <Checkbox toggleStateBoolean={this.toggleStateBoolean} parameterName="isLinkEditable" displayName="Link editable" />
+                    <Checkbox toggleStateBoolean={this.toggleStateBoolean} parameterName="isTextEditable" displayName="Text editable" />
                     {this.renderMaxLengthInput()}
                 </span>
             )
@@ -108,7 +72,7 @@ class LinkEditor extends Component {
                 <Form>
                     <AutoPopulateSelect setAutoPopulateText={this.setAutoPopulateText} />
                     <TextContentInput setCustomText={this.setCustomText} />
-                    <EditableCheckbox toggleEditable={this.toggleEditable} />
+                    <Checkbox toggleStateBoolean={this.toggleStateBoolean} parameterName="isEditable" displayName="Editable" />
                     {this.renderEditableFields()}
                     <SubmitButton updateFinalTag={this.props.updateFinalTag} mainState={this.state} />
                 </Form>
