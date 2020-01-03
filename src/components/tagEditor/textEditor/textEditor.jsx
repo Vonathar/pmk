@@ -2,13 +2,9 @@
 import '../../../css/tagEditor/textEditor.css'
 import React, { Component } from 'react';
 import { Form } from 'react-bootstrap';
-import AutoPopulateSelect from './autoPopulateSelect';
-import EnclosingTagSelect from './enclosingTagSelect';
-import TextContentInput from './textContentInput';
-import MaxLengthInput from './maxLengthInput';
-import LengthDefaultInput from './lengthDefaultInput';
-import PmTextInput from './pmTextInput';
 import Checkbox from '../../common/checkbox';
+import TextInput from '../../common/textInput';
+import SelectInput from '../../common/selectInput'
 import SubmitButton from './submitButton';
 
 class TextEditor extends Component {
@@ -33,6 +29,8 @@ class TextEditor extends Component {
         this.setState({ [booleanName]: !this.state[booleanName] })
     }
 
+    // Change the value of a given property that's present in the state
+    // Accepts two formal parameters: (1) the new value and (2) the unique property identifier
     changeTagContentState = (newValue, parameterName) => {
         let tagContent = { ...this.state.tagContent };
         tagContent[parameterName] = newValue;
@@ -42,8 +40,8 @@ class TextEditor extends Component {
     // Render the max-length or the length-default based on the boolean preferMaxLengthOverDefault
     renderTextLengthFields = () => {
         return (this.state.preferMaxLengthOverDefault)
-            ? <MaxLengthInput changeTagContentState={this.changeTagContentState} />
-            : <LengthDefaultInput changeTagContentState={this.changeTagContentState} />
+            ? <TextInput changeTagContentState={this.changeTagContentState} parameterName="maxLength" displayName="Max length" size="small" placeholder="Enter" />
+            : <TextInput changeTagContentState={this.changeTagContentState} parameterName="lengthDefault" displayName="Length default" size="small" placeholder="Enter" />
     }
 
     // Render the editable properties of the PM tags based on the boolean isEditable
@@ -51,7 +49,7 @@ class TextEditor extends Component {
         if (this.state.isEditable) {
             return (
                 <span>
-                    <PmTextInput changeTagContentState={this.changeTagContentState} />
+                    <TextInput changeTagContentState={this.changeTagContentState} parameterName="pmText" displayName="PM Text" size="medium" placeholder="Enter the unique pm-text attribute" />
                     <Checkbox toggleStateBoolean={this.toggleStateBoolean} parameterName="preferMaxLengthOverDefault" displayName="Use max-length" />
                     {this.renderTextLengthFields()}
                     <Checkbox toggleStateBoolean={this.toggleStateBoolean} parameterName="isOptional" displayName="Optional" />
@@ -68,9 +66,9 @@ class TextEditor extends Component {
                     Text editor
                 </p>
                 <Form>
-                    <AutoPopulateSelect changeTagContentState={this.changeTagContentState} />
-                    <EnclosingTagSelect changeTagContentState={this.changeTagContentState} />
-                    <TextContentInput changeTagContentState={this.changeTagContentState} />
+                    <SelectInput changeTagContentState={this.changeTagContentState} parameterName="autoPopulateText" displayName="Auto-populate" size="medium" options={["None", "Company Name", "Company Website", "Company Email", "Company Phone", "Company Address", "Value Proposition", "Link to LP"]} />
+                    <SelectInput changeTagContentState={this.changeTagContentState} parameterName="enclosingTag" displayName="Enclosing tag" size="small" options={["div", "p", "span"]} />
+                    <TextInput changeTagContentState={this.changeTagContentState} parameterName="customText" displayName="Text content" size="wide" placeholder="Enter the text which should be within the tag" />
                     <Checkbox toggleStateBoolean={this.toggleStateBoolean} parameterName="isEditable" displayName="Editable" />
                     {this.renderEditableFields()}
                     <SubmitButton mainState={this.state} updateFinalTag={this.props.updateFinalTag} />
