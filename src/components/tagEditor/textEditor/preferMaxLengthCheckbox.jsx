@@ -6,7 +6,7 @@ class PreferMaxLengthCheckbox extends Component {
         return (
             <Form.Group controlId="maxLengthCheckbox">
                 <Form.Check type="checkbox" label="Use max-length" onChange={() => {
-                    this.props.toggleMaxLength()
+                    this.props.toggleStateBoolean("preferMaxLengthOverDefault")
                 }} />
             </Form.Group>
         )

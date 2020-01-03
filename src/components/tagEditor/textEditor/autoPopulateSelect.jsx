@@ -6,7 +6,7 @@ class AutoPopulateSelect extends Component {
         return (
             <Form.Group controlId="exampleForm.ControlSelect1" className="editor-input-medium">
                 <Form.Label>Auto-populate</Form.Label>
-                <Form.Control onChange={(e) => this.props.setAutoPopulateText(e.target.value)} as="select" >
+                <Form.Control onChange={(e) => this.props.changeTagContentState(e.target.value, "autoPopulateText")} as="select" >
                     <option>None</option>
                     <option>Company Name</option>
                     <option>Company Website</option>

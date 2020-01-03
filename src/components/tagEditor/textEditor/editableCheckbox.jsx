@@ -6,7 +6,7 @@ class EditableCheckbox extends Component {
         return (
             <Form.Group controlId="editableCheckbox">
                 <Form.Check type="checkbox" label="Editable" onChange={() => {
-                    this.props.toggleEditable();
+                    this.props.toggleStateBoolean("isEditable");
                 }} />
             </Form.Group>
         )

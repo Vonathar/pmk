@@ -6,7 +6,7 @@ class RichTextCheckbox extends Component {
         return (
             <Form.Group controlId="richTextCheckbox">
                 <Form.Check type="checkbox" label="Rich Text" onChange={() => {
-                    this.props.toggleRichText();
+                    this.props.toggleStateBoolean("hasRichText");
                 }} />
             </Form.Group>
         )

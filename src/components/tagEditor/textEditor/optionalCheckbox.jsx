@@ -6,7 +6,7 @@ class OptionalCheckbox extends Component {
         return (
             <Form.Group controlId="optionalCheckbox">
                 <Form.Check type="checkbox" label="Optional" onChange={() => {
-                    this.props.toggleOptional();
+                    this.props.toggleStateBoolean("isOptional");
                 }} />
             </Form.Group>
         )
