@@ -2,9 +2,6 @@
 import React, { Component } from 'react';
 import { Form } from 'react-bootstrap';
 import AutoPopulateSelect from './autoPopulateSelect';
-import TextContentInput from './textContentInput';
-import PmLinkInput from './pmLinkInput';
-import MaxLengthInput from './maxLengthInput';
 import SubmitButton from './submitButton';
 import Checkbox from '../../common/checkbox';
 import TextInput from '../../common/textInput';
@@ -46,7 +43,7 @@ class LinkEditor extends Component {
         if (this.state.isEditable) {
             return (
                 <span>
-                    <PmLinkInput setPmLink={this.setPmLink} />
+                    <TextInput changeTagContentState={this.changeTagContentState} parameterName="pmLink" displayName="PM-Link" size="wide" placeholder="Enter the unique pm-link attribute" />
                     <Checkbox toggleStateBoolean={this.toggleStateBoolean} parameterName="isOptional" displayName="Optional" />
                     <Checkbox toggleStateBoolean={this.toggleStateBoolean} parameterName="isLinkEditable" displayName="Link editable" />
                     <Checkbox toggleStateBoolean={this.toggleStateBoolean} parameterName="isTextEditable" displayName="Text editable" />
@@ -59,7 +56,7 @@ class LinkEditor extends Component {
     // Render the max-length editor if the TEXT is editable
     renderMaxLengthInput = () => {
         if (this.state.isTextEditable) {
-            return <MaxLengthInput setMaxLengthValue={this.setMaxLengthValue} />
+            return <TextInput changeTagContentState={this.changeTagContentState} parameterName="maxLength" displayName="Max length" size="small" placeholder="Enter" />
         }
     }
 
@@ -71,7 +68,7 @@ class LinkEditor extends Component {
                 </p>
                 <Form>
                     <AutoPopulateSelect setAutoPopulateText={this.setAutoPopulateText} />
-                    <TextContentInput setCustomText={this.setCustomText} />
+                    <TextInput changeTagContentState={this.changeTagContentState} parameterName="customText" displayName="Text content" size="wide" placeholder="Enter the text which should be within the tag" />
                     <Checkbox toggleStateBoolean={this.toggleStateBoolean} parameterName="isEditable" displayName="Editable" />
                     {this.renderEditableFields()}
                     <SubmitButton updateFinalTag={this.props.updateFinalTag} mainState={this.state} />

@@ -49,7 +49,7 @@ class TextEditor extends Component {
         if (this.state.isEditable) {
             return (
                 <span>
-                    <TextInput changeTagContentState={this.changeTagContentState} parameterName="pmText" displayName="PM Text" size="medium" placeholder="Enter the unique pm-text attribute" />
+                    <TextInput changeTagContentState={this.changeTagContentState} parameterName="pmText" displayName="PM-Text" size="medium" placeholder="Enter the unique pm-text attribute" />
                     <Checkbox toggleStateBoolean={this.toggleStateBoolean} parameterName="preferMaxLengthOverDefault" displayName="Use max-length" />
                     {this.renderTextLengthFields()}
                     <Checkbox toggleStateBoolean={this.toggleStateBoolean} parameterName="isOptional" displayName="Optional" />
