@@ -28,7 +28,7 @@ class Home extends Component {
             return <LinkEditor updateFinalTag={this.updateFinalTag} />
         }
         if (this.props.openEditor === "image") {
-            return <ImageEditor />
+            return <ImageEditor updateFinalTag={this.updateFinalTag} />
         }
     }
 

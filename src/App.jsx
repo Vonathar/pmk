@@ -14,7 +14,7 @@ class App extends Component {
 
   state = {
     isDrawerOpen: false,
-    openEditor: "text",
+    openEditor: "image",
     links: [
       <LeftDrawerLink linkIcon={<HomeIcon />} linkName="Home" linkSize="primary" linkTo="/" />,
       "Divider",
