@@ -28,12 +28,6 @@ export default class LeftDrawer extends Component {
                 </List>
                 <Divider />
                 <List>
-                    <ListItem onClick={() => this.props.updateDropdownSelection("text")} button key="PM-Text">
-                        <ListItemIcon>
-                            <TextFields />
-                        </ListItemIcon>
-                        <ListItemText secondary="PM-Text" />
-                    </ListItem>
                     <ListItem onClick={() => this.props.updateDropdownSelection("link")} button key="PM-Link">
                         <ListItemIcon>
                             <LinkIcon />

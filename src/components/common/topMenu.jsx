@@ -7,6 +7,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 export default class TopMenu extends Component {
 
+
     render() {
         return (
             <div className="dropdown" >
@@ -26,7 +27,7 @@ export default class TopMenu extends Component {
                             <LeftDrawer
                                 updateDropdownSelection={this.props.updateDropdownSelection}
                                 toggleDrawer={this.props.toggleDrawer}
-                                topMenuState={this.state} />
+                                links={this.props.links} />
                         </SwipeableDrawer>
                     </Toolbar>
 
