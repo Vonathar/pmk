@@ -37,7 +37,7 @@
     padding: 30px 50px;
     margin: 40px auto 0 auto;
     border-radius: 15px 15px 0 0;
-    background-color: #2c2c2c;
+    background-color: $background-black;
   }
 }
 
@@ -46,7 +46,7 @@
   padding: 10px 200px;
   margin: auto;
   border-radius: 0 0 15px 15px;
-  background-color: #000000;
+  background-color: $background-black;
   .tagDisplay-h1 {
     font-size: 15px;
     font-weight: bold;

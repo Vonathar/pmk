@@ -8,7 +8,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import ImageIcon from "@material-ui/icons/Image";
 import LinkIcon from "@material-ui/icons/Link";
 import LeftDrawerLink from "./components/common/leftDrawerLink";
-import "./css/app.scss";
+import "./scss/app.scss";
 
 class App extends Component {
   state = {
