@@ -1,6 +1,5 @@
 // Imports
 import React, { Component } from "react";
-import "../../css/tagEditor/tagDisplay.css";
 
 class TagDisplay extends Component {
   render() {
