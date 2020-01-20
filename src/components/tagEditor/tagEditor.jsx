@@ -21,13 +21,13 @@ class Home extends Component {
 
   // Render the relevant editor based on the value of the dropdown menu at the top
   renderEditor = () => {
-    if (this.props.activeEditor.activeEditor === "text") {
+    if (this.props.activeEditor === "text") {
       return <TextEditor updateFinalTag={this.updateFinalTag} />;
     }
-    if (this.props.activeEditor.activeEditor === "link") {
+    if (this.props.activeEditor === "link") {
       return <LinkEditor updateFinalTag={this.updateFinalTag} />;
     }
-    if (this.props.activeEditor.activeEditor === "image") {
+    if (this.props.activeEditor === "image") {
       return <ImageEditor updateFinalTag={this.updateFinalTag} />;
     }
   };
@@ -46,7 +46,7 @@ class Home extends Component {
 
 let mapStateToProps = function (state) {
   return {
-    activeEditor: state.activeEditor
+    activeEditor: state.activeEditor.activeEditor
   }
 }
 
