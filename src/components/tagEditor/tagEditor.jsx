@@ -4,6 +4,7 @@ import TextEditor from "./textEditor/textEditor";
 import LinkEditor from "./linkEditor/linkEditor";
 import ImageEditor from "./imageEditor/imageEditor";
 import TagDisplay from "./tagDisplay";
+import { connect } from 'react-redux';
 
 class Home extends Component {
   state = {
@@ -20,16 +21,18 @@ class Home extends Component {
 
   // Render the relevant editor based on the value of the dropdown menu at the top
   renderEditor = () => {
-    if (this.props.openEditor === "text") {
+    if (this.props.activeEditor.activeEditor === "text") {
       return <TextEditor updateFinalTag={this.updateFinalTag} />;
     }
-    if (this.props.openEditor === "link") {
+    if (this.props.activeEditor.activeEditor === "link") {
       return <LinkEditor updateFinalTag={this.updateFinalTag} />;
     }
-    if (this.props.openEditor === "image") {
+    if (this.props.activeEditor.activeEditor === "image") {
       return <ImageEditor updateFinalTag={this.updateFinalTag} />;
     }
   };
+
+
 
   render() {
     return (
@@ -41,4 +44,10 @@ class Home extends Component {
   }
 }
 
-export default Home;
+let mapStateToProps = function (state) {
+  return {
+    activeEditor: state.activeEditor
+  }
+}
+
+export default connect(mapStateToProps)(Home);

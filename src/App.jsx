@@ -8,6 +8,8 @@ import HomeIcon from "@material-ui/icons/Home";
 import ImageIcon from "@material-ui/icons/Image";
 import LinkIcon from "@material-ui/icons/Link";
 import LeftDrawerLink from "./components/common/leftDrawerLink";
+import { connect } from 'react-redux';
+import { textEditorOpened, linkEditorOpened, imageEditorOpened } from './redux/actions/activeEditor'
 import "./scss/app.scss";
 
 class App extends Component {
@@ -28,7 +30,7 @@ class App extends Component {
         linkSize="secondary"
         linkTo="/editor"
         onClickHandler={() => {
-          this.setState({ openEditor: "text" });
+          this.props.dispatch(textEditorOpened())
         }}
       />,
       <LeftDrawerLink
@@ -37,7 +39,7 @@ class App extends Component {
         linkSize="secondary"
         linkTo="/editor"
         onClickHandler={() => {
-          this.setState({ openEditor: "link" });
+          this.props.dispatch(linkEditorOpened())
         }}
       />,
       <LeftDrawerLink
@@ -46,7 +48,7 @@ class App extends Component {
         linkSize="secondary"
         linkTo="/editor"
         onClickHandler={() => {
-          this.setState({ openEditor: "image" });
+          this.props.dispatch(imageEditorOpened())
         }}
       />
     ]
@@ -90,4 +92,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    activeEditor: state.activeEditor
+  }
+}
+
+
+export default connect(mapStateToProps)(App);
