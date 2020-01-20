@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
+import { finalTagUpdated } from '../../../redux/actions/finalTag'
+import { connect } from 'react-redux';
 
 class SubmitButton extends Component {
 
@@ -93,7 +95,7 @@ class SubmitButton extends Component {
         }
         // Closing tag
         tag += "</" + this.props.mainState.tagContent.enclosingTag + ">";
-        this.props.updateFinalTag(tag);
+        this.props.dispatch(finalTagUpdated(tag));
     }
 
     render() {
@@ -108,4 +110,10 @@ class SubmitButton extends Component {
     }
 }
 
-export default SubmitButton;
+let mapStateToProps = (state) => {
+    return {
+        finalTag: state.finalTag.finalTag
+    }
+}
+
+export default connect(mapStateToProps)(SubmitButton);
